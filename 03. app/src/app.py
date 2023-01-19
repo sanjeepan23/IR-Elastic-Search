@@ -10,7 +10,8 @@ async def serve(q: Q):
     print(q.args)
     if q.user.init != True:
         await initialize_app(q)
-
+    if q.args.dropdown:
+        q.app.drop = q.args.dropdown
     if q.args.query_btn:
         await home_page(q, {"flag": "home"})
     await home_page(q, {"flag": "home"})

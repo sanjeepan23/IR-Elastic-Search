@@ -21,6 +21,7 @@ async def initialize_app(q):
         q.user.logo_height = "40"
 
     q.user.init = True
+    q.app.drop = "choice1"
 
 
 def create_layout(q: Q, tag=None, tool_tab=None):
