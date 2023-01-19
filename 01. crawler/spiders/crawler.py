@@ -11,7 +11,7 @@ class AumItem(scrapy.Item):
 
 
 class AUMSpider(scrapy.Spider):
-    name = "bestrestaurants-main"
+    name = "ir"
 
     def __init__(self, start_urls, dir_name):
         self.start_urls = start_urls
@@ -27,7 +27,7 @@ class AUMSpider(scrapy.Spider):
         try:
             cards = soup.find_all("div", id="tab-merchants")
             urls = cards[0].find_all("a", href=re.compile("place"))
-            urls = ["https://www.bestrestaurants.com.au" + url["href"] for url in urls]
+            urls = ["" + url["href"] for url in urls]
         except Exception:
             pass
         return urls
@@ -55,7 +55,7 @@ def load_urls(path):
 
 if __name__ == "__main__":
 
-    un_crawled = load_urls("../data/bestrestaurants/urls.json")["urls"]
+    un_crawled = load_urls("../data/ir/urls.json")["urls"]
     ## Create directories & files
     dir_name = "bestrestaurants"
 
